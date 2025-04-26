@@ -57,7 +57,7 @@ class FetchCryptoPrices extends Command
                 // 'fetched_at' => $crypto['quote']['USD']['last_updated'],
             ]);
         }
-
+// mensaje de éxito
         $this->info('Nombres, símbolos y precios de criptomonedas guardados correctamente.');
     }
 }
