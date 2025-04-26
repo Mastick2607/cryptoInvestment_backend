@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Crytocurrencys;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class CrytocurrencysController extends Controller
 {
@@ -19,7 +20,7 @@ class CrytocurrencysController extends Controller
     
             return response()->json($response->json());
          
-    }
+    
     }
 
     /**

@@ -15,6 +15,22 @@ class PriceHistoryController extends Controller
         //
     }
 
+    public function getPriceHistory(Request $request, $id)
+    {
+        $request->validate([
+            'from' => 'required|date',
+            'to' => 'required|date|after_or_equal:from',
+        ]);
+    
+        $history = Price_history::where('cryptocurrency_id', $id)
+            ->whereBetween('fetched_at', [$request->from, $request->to])
+            ->orderBy('fetched_at')
+            ->get();
+    
+        return response()->json($history);
+    }
+    
+
     /**
      * Store a newly created resource in storage.
      */

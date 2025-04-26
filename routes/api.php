@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CrytocurrencysController;
+use App\Http\Controllers\PriceHistoryController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +16,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/cryptos', [CrytocurrencysController::class,('index')]);
+Route::get('/cryptos', [CrytocurrencysController::class,('index')]);
+Route::get('/cryptos/{id}/price-history', [PriceHistoryController::class, 'getPriceHistory'])->name('cryptos.price-history');
+
+// getPriceHistory
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });

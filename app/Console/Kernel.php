@@ -13,7 +13,8 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule): void
     {
         // $schedule->command('inspire')->hourly();
-        $schedule->command('app:fetch-crypto-prices')->everyTenMinutes();
+        // $schedule->command('app:fetch-crypto-prices')->everyTenMinutes();
+        $schedule->command('app:fetch-crypto-prices')->everyMinute();
 
     }
 
