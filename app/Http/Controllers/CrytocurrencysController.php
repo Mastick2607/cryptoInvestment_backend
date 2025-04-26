@@ -12,7 +12,14 @@ class CrytocurrencysController extends Controller
      */
     public function index()
     {
-        //
+        
+            $response = Http::withHeaders([
+                'X-CMC_PRO_API_KEY' => env('CMC_API_KEY'), // o pon directamente tu API key aquí
+            ])->get('https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest');
+    
+            return response()->json($response->json());
+         
+    }
     }
 
     /**
