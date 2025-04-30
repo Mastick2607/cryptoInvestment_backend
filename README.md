@@ -15,8 +15,8 @@ Este es el backend del sistema **CryptoInvestment**, desarrollado en **Laravel**
 1. Clonar el repositorio
 
 ```bash
-  git clone https://github.com/Mastick2607/XYZ_Commerce_back.git
-  cd XYZ_Commerce_back
+  git clone https://github.com/Mastick2607/cryptoInvestment_backend.git
+  cd cryptoInvestment_backend
   code . //para abrir el proyecto
 ```
 
