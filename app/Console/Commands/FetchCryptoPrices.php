@@ -38,21 +38,22 @@ class FetchCryptoPrices extends Command
 
         foreach ($cryptos as $crypto) {
             // Buscar si ya existe en la tabla de criptos
-            $localCrypto = Crytocurrencys::where('symbol', $crypto['symbol'])->first();
+            // $localCrypto = Crytocurrencys::where('symbol', $crypto['symbol'])->first();
 
             // Si no existe, la creamos
-            if (!$localCrypto) {
-                $localCrypto = Crytocurrencys::create([
-                    'name' => $crypto['name'],
-                    'symbol' => $crypto['symbol'],
-                ]);
-            }
+            // if (!$localCrypto) {
+            //     $localCrypto = Crytocurrencys::create([
+            //         'name' => $crypto['name'],
+            //         'symbol' => $crypto['symbol'],
+
+            //     ]);
+            // }
 
             // Guardar el historial de precios
             Price_history::create([
-                'cryptocurrency_id' => $localCrypto->id,
+                'cryptocurrency_id' => $crypto['id'],
                 'price' => $crypto['quote']['USD']['price'],
-                'fetched_at' => Carbon::parse($crypto['quote']['USD']['last_updated'])->format('Y-m-d H:i:s'),
+                'fetched_at' => now()->format('Y-m-d H:i:s'),
 
                 // 'fetched_at' => $crypto['quote']['USD']['last_updated'],
             ]);

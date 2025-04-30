@@ -34,10 +34,19 @@ class CrytocurrencysController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Crytocurrencys $crytocurrencys)
+    public function show(string $crytosid)
     {
-        //
+       
+        $response = Http::withHeaders([
+            'X-CMC_PRO_API_KEY' => env('CMC_API_KEY'),
+        ])->get('https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest', [
+            'id' => $crytosid,
+            'aux' => 'max_supply,circulating_supply,total_supply,cmc_rank', // <-- los campos extras que quieres traer
+        ]); 
+        return response()->json($response->json());
+ 
     }
+        
 
     /**
      * Update the specified resource in storage.

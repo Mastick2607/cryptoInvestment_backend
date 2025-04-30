@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/cryptos', [CrytocurrencysController::class,('index')]);
-Route::get('/cryptos', [CrytocurrencysController::class,('index')]);
+Route::get('/cryptos/{id}/', [CrytocurrencysController::class,('show')]);
 Route::get('/cryptos/{id}/price-history', [PriceHistoryController::class, 'getPriceHistory'])->name('cryptos.price-history');
 
 // getPriceHistory
