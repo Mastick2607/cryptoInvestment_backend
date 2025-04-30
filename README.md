@@ -1,66 +1,101 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 📊 Backend - CryptoInvestment API
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
 
-## About Laravel
+## 📋 Descripción
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Este es el backend del sistema **CryptoInvestment**, desarrollado en **Laravel**. Proporciona una API RESTful que permite consultar y almacenar información de criptomonedas utilizando la API de CoinMarketCap y persistirla en una base de datos MySQL.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🚀 Tecnologías Utilizadas
+- [Laravel 10](https://laravel.com/) – Framework PHP para desarrollo backend.
+- [MySQL](https://www.mysql.com/) – Base de datos relacional.
+- [CoinMarketCap API](https://coinmarketcap.com/api/) – Fuente de datos para precios, volumen y variaciones de criptomonedas.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 🚀 Instalación
 
-## Learning Laravel
+1. Clonar el repositorio
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+```bash
+  git clone https://github.com/Mastick2607/XYZ_Commerce_back.git
+  cd XYZ_Commerce_back
+  code . //para abrir el proyecto
+```
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+2. Instalar composer sino se tiene
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- Visita https://getcomposer.org/download/
+- Descarga el archivo 'Composer-Setup.exe'
+- Sigue las instrucciones del asistente de instalación
+- Asegúrate de que la opción "Add to PATH" esté marcada para poder usar composer desde cualquier directorio
+- Abre una nueva ventana de CMD o PowerShell y ejecuta:
+  
+```bash
+ composer --version
+```
 
-## Laravel Sponsors
+3. Sí ya tienes composer ejecuta esto:
+```bash
+composer install
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+4. Copia el archivo de configuración y configura las variables de entorno:
 
-### Premium Partners
+- Abre el explorador de archivos en la raíz del proyecto.
+- Busca el archivo .env.example.
+- Cópialo (Ctrl + C) y pégalo (Ctrl + V).
+- Renómbralo a .env.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+5.Genera la clave de aplicación:
 
-## Contributing
+ ```bash
+php artisan key:generate
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```
+   
+6. Editar el archivo .env con las credenciales:
 
-## Code of Conduct
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```bash
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=cryptoInvestment_bd
+DB_USERNAME=root
+DB_PASSWORD=
+```
+7. Crear la base de datos:
+- Crear la base de datos en PhpMyAdmin con el nombre cryptoInvestment_bd
 
-## Security Vulnerabilities
+8. Activar servicios del paquete de servidor local:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+- Dar "Start" al boton de Mysql
+- Dar "Start" al boton de Apache
 
-## License
+7. En caso de que apache tenga inconvientes, escribe este comando en consola para que funcionen las peticiones:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```bash
+ php artisan serve
+```
+8. Migrar las tablas
+```bash
+ php artisan migrate
+```
+9. Una vez que el servidor esté en funcionamiento, debes abrir una nueva ventana de la terminal y ejecutar el siguiente comando. Este proceso se encargará de almacenar periódicamente el historial de precios en la base de datos:
+
+php cron-simulator.php
+
+
+
+El API estará disponible en: http://localhost:8000
+
+# 🔌 Endpoints Principales
+
+## Obtener listado de criptomonedas
+*GET*  http://localhost:8000/api/cryptos/
+
+## Obtener detalles de una criptomoneda
+*GET*  http://localhost:8000/api/cryptos/{id}
+
+## Obtener historial de precios de cada criptomoneda
+## *NOTA* si se va obtener la información desde Postman, debe colocar los siguientes parámetros en la url, para el ejemplo se colocó:
+*GET*  http://localhost:8000/api/cryptos/{id}/price-history?from=2025-04-29 12:00:00&to=2025-04-30 10:11:48
+
